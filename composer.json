@@ -1,0 +1,26 @@
+{
+	"name":              "ihor-sudoma-dev/sparks-rest-api-client",
+	"description":       "Sparks REST API Client",
+	"minimum-stability": "dev",
+	"license":           "proprietary",
+	"authors":           [
+		{
+			"name":  "Ihor Sudoma",
+			"email": "sigord.hunter@gmail.com"
+		}
+	],
+	"version":           "0.1.0",
+	"require":           {
+		"php":               ">=7.4",
+		"ext-json":          "*",
+		"guzzlehttp/guzzle": "^7.0"
+	},
+	"require-dev":       {
+		"roave/security-advisories": "dev-latest"
+	},
+	"autoload":          {
+		"psr-4": {
+			"SparksRestApiClient\\": "src/"
+		}
+	}
+}
