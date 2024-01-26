@@ -9,13 +9,13 @@ namespace SparksRestApiClient\ValueObjects;
 class SubscriberStatus
 {
 	/*** @var string */
-	public const ACTIVE = 'Active';
+	public const ACTIVE = 'ACTIVE';
 	/*** @var string */
-	public const DISCONNECTED = 'Disconnected';
+	public const DISCONNECTED = 'DISCONNECTED';
 	/*** @var string */
-	public const INACTIVE = 'Inactive';
+	public const INACTIVE = 'INACTIVE';
 	/*** @var string */
-	public const PENDING = 'Pending';
+	public const PENDING = 'PENDING';
 	/*** @var string */
-	public const SUSPENDED = 'Suspended';
+	public const SUSPENDED = 'SUSPENDED';
 }

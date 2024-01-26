@@ -21,10 +21,10 @@ class ListResellerAccountRequest extends ARequest
 	protected array $availableInputParameters = [];
 
 	/**
-	 * @param string $resellerId
+	 * @param int $resellerId
 	 * @return $this
 	 */
-	public function withResellerId(string $resellerId): self
+	public function withResellerId(int $resellerId): self
 	{
 		$this->availableInputParameters['resellerId'] = $resellerId;
 		return $this;

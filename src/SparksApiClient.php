@@ -4,6 +4,7 @@ namespace SparksRestApiClient;
 
 use Exception;
 use SparksRestApiClient\Requests\Account\ModifyAccountBalanceRequest;
+use SparksRestApiClient\Requests\Reseller\GetResellerInfoRequest;
 use SparksRestApiClient\Requests\Reseller\ListResellerAccountRequest;
 use SparksRestApiClient\Requests\Sim\GetSimProviderStatusRequest;
 use SparksRestApiClient\Requests\Sms\SendMtSmsRequest;
@@ -49,6 +50,15 @@ class SparksApiClient
 	public function listSubscriber(): ListSubscriberRequest
 	{
 		return new ListSubscriberRequest($this->getApiToken());
+	}
+
+	/**
+	 * @param int $resellerId
+	 * @return GetResellerInfoRequest
+	 */
+	public function getResellerInfo(int $resellerId): GetResellerInfoRequest
+	{
+		return new GetResellerInfoRequest($this->apiToken, $resellerId);
 	}
 
 	/**

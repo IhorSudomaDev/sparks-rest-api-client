@@ -33,10 +33,10 @@ class ModifyAccountBalanceRequest extends ARequest
 	}
 
 	/**
-	 * @param string $accountId
+	 * @param int $accountId
 	 * @return $this
 	 */
-	public function withAccountId(string $accountId): self
+	public function withAccountId(int $accountId): self
 	{
 		$this->availableInputParameters['accountId'] = $accountId;
 		return $this;

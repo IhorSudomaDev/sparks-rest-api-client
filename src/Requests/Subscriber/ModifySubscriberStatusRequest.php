@@ -3,7 +3,7 @@
 namespace SparksRestApiClient\Requests\Subscriber;
 
 use SparksRestApiClient\Requests\Abstracts\ARequest;
-use SparksRestApiClient\Responses\Abstracts\ASingleResponse;
+use SparksRestApiClient\Responses\Subscriber\ModifySubscriberStatusResponse;
 
 /**
  * Class ModifySubscriberStatusRequest
@@ -15,7 +15,7 @@ class ModifySubscriberStatusRequest extends ARequest
 	protected string $action = 'modifySubscriberStatus';
 
 	/*** @var string */
-	protected string $responseClass = ASingleResponse::class;
+	protected string $responseClass = ModifySubscriberStatusResponse::class;
 
 	/*** @var array|NULL[] */
 	protected array $availableInputParameters = [];
