@@ -8,6 +8,7 @@ use SparksRestApiClient\Requests\Reseller\GetResellerInfoRequest;
 use SparksRestApiClient\Requests\Reseller\ListResellerAccountRequest;
 use SparksRestApiClient\Requests\Sim\GetSimProviderStatusRequest;
 use SparksRestApiClient\Requests\Sms\SendMtSmsRequest;
+use SparksRestApiClient\Requests\Subscriber\GetSingleSubscriberRequest;
 use SparksRestApiClient\Requests\Subscriber\ListSubscriberRequest;
 use SparksRestApiClient\Requests\Subscriber\ModifySubscriberBalanceRequest;
 use SparksRestApiClient\Requests\Subscriber\ModifySubscriberStatusRequest;
@@ -50,6 +51,12 @@ class SparksApiClient
 	public function listSubscriber(): ListSubscriberRequest
 	{
 		return new ListSubscriberRequest($this->getApiToken());
+	}
+
+	/*** @return GetSingleSubscriberRequest */
+	public function getSingleSubscriber(): GetSingleSubscriberRequest
+	{
+		return new GetSingleSubscriberRequest($this->getApiToken());
 	}
 
 	/**
