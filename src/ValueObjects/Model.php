@@ -31,7 +31,11 @@ class Model
 	/*** @var string */
 	public const SUBSCRIBER = 'Subscriber';
 	/*** @var string */
+	public const SUBSCRIBER_USAGE_OVER_PERIOD = 'SubscriberUsageOverPeriod';
+	/*** @var string */
 	public const TRAFFIC_INFO = 'TrafficInfo';
+	/*** @var string */
+	public const USAGE = 'Usage';
 	/*** @var string */
 	public const VOIP_PLAN = 'VoipPlan';
 }

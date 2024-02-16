@@ -7,16 +7,18 @@ namespace SparksRestApiClient\Models;
  * @property ImsiList        imsiList
  * @property PhoneNumberList phoneNumberList
  * @property MultiImsi       multiImsi
- * @property Status          status
+ * @property array           status
  * @property Sim             sim
  * @property int             subscriberId
  * @property string          batchId
+ * @property string|NULL     subscriberName
  * @property int             accountId
  * @property int             resellerId
  * @property bool            prepaid
  * @property float           balance
  * @property string          activationDate
- * @property string          email
+ * @property string|NULL     lastUsageDate
+ * @property string|NULL     email
  * @property bool            useAccountForCharging
  * @property bool            allowedMoc
  * @property bool            allowedMtc
@@ -25,259 +27,201 @@ namespace SparksRestApiClient\Models;
  * @property bool            allowedMtsms
  * @property string          account
  * @property string          reseller
+ * @property int|NULL        lastMcc
+ * @property int|NULL        lastMnc
  * @package SparksRestApiClient\Models
  */
 class Subscriber
 {
 	/*** @return ImsiList */
-	public function getImsiList()
+	public function getImsiList(): ImsiList
 	{
-		return $this->imsiList;
-	}
-
-	/*** @param ImsiList $imsiList */
-	public function setImsiList($imsiList)
-	{
-		$this->imsiList = $imsiList;
+		return $this->imsiList[0];
 	}
 
 	/*** @return PhoneNumberList */
-	public function getPhoneNumberList()
+	public function getPhoneNumberList(): PhoneNumberList
 	{
-		return $this->phoneNumberList;
-	}
-
-	/*** @param PhoneNumberList $phoneNumberList */
-	public function setPhoneNumberList($phoneNumberList)
-	{
-		$this->phoneNumberList = $phoneNumberList;
+		return $this->phoneNumberList[0];
 	}
 
 	/*** @return MultiImsi */
-	public function getMultiImsi()
+	public function getMultiImsi(): MultiImsi
 	{
-		return $this->multiImsi;
-	}
-
-	/*** @param MultiImsi $multiImsi */
-	public function setMultiImsi($multiImsi)
-	{
-		$this->multiImsi = $multiImsi;
+		return $this->multiImsi[0];
 	}
 
 	/*** @return Status */
-	public function getStatus()
+	public function getStatus(): Status
 	{
-		return $this->status;
-	}
-
-	/*** @param Status $status */
-	public function setStatus($status)
-	{
-		$this->status = $status;
+		return array_pop($this->status);
 	}
 
 	/*** @return Sim */
-	public function getSim()
+	public function getSim(): Sim
 	{
 		return $this->sim;
 	}
 
-	/*** @param Sim $sim */
-	public function setSim($sim)
-	{
-		$this->sim = $sim;
-	}
-
 	/*** @return int */
-	public function getSubscriberId()
+	public function getSubscriberId(): int
 	{
 		return $this->subscriberId;
 	}
 
-	/*** @param int $subscriberId */
-	public function setSubscriberId($subscriberId)
-	{
-		$this->subscriberId = $subscriberId;
-	}
-
 	/*** @return string */
-	public function getBatchId()
+	public function getBatchId(): string
 	{
 		return $this->batchId;
 	}
 
-	/*** @param string $batchId */
-	public function setBatchId($batchId)
+	/*** @return string|NULL */
+	public function getSubscriberName(): ?string
 	{
-		$this->batchId = $batchId;
+		return $this->subscriberName ?? NULL;
 	}
 
 	/*** @return int */
-	public function getAccountId()
+	public function getAccountId(): int
 	{
 		return $this->accountId;
 	}
 
-	/*** @param int $accountId */
-	public function setAccountId($accountId)
-	{
-		$this->accountId = $accountId;
-	}
-
 	/*** @return int */
-	public function getResellerId()
+	public function getResellerId(): int
 	{
 		return $this->resellerId;
 	}
 
-	/*** @param int $resellerId */
-	public function setResellerId($resellerId)
-	{
-		$this->resellerId = $resellerId;
-	}
-
 	/*** @return bool */
-	public function isPrepaid()
+	public function isPrepaid(): bool
 	{
 		return $this->prepaid;
 	}
 
-	/*** @param bool $prepaid */
-	public function setPrepaid($prepaid)
-	{
-		$this->prepaid = $prepaid;
-	}
-
 	/*** @return float */
-	public function getBalance()
+	public function getBalance(): float
 	{
 		return $this->balance;
 	}
 
-	/*** @param float $balance */
-	public function setBalance($balance)
-	{
-		$this->balance = $balance;
-	}
-
 	/*** @return string */
-	public function getActivationDate()
+	public function getActivationDate(): string
 	{
 		return $this->activationDate;
 	}
 
-	/*** @param string $activationDate */
-	public function setActivationDate($activationDate)
+	/*** @return string|NULL */
+	public function getLastUsageDate(): ?string
 	{
-		$this->activationDate = $activationDate;
+		return $this->lastUsageDate ?? NULL;
 	}
 
-	/*** @return string */
-	public function getEmail()
+	/*** @return string|NULL */
+	public function getEmail(): ?string
 	{
-		return $this->email;
-	}
-
-	/*** @param string $email */
-	public function setEmail($email)
-	{
-		$this->email = $email;
+		return $this->email ?? NULL;
 	}
 
 	/*** @return bool */
-	public function isUseAccountForCharging()
+	public function isUseAccountForCharging(): bool
 	{
 		return $this->useAccountForCharging;
 	}
 
-	/*** @param bool $useAccountForCharging */
-	public function setUseAccountForCharging($useAccountForCharging)
-	{
-		$this->useAccountForCharging = $useAccountForCharging;
-	}
-
 	/*** @return bool */
-	public function isAllowedMoc()
+	public function isAllowedMoc(): bool
 	{
 		return $this->allowedMoc;
 	}
 
-	/*** @param bool $allowedMoc */
-	public function setAllowedMoc($allowedMoc)
-	{
-		$this->allowedMoc = $allowedMoc;
-	}
-
 	/*** @return bool */
-	public function isAllowedMtc()
+	public function isAllowedMtc(): bool
 	{
 		return $this->allowedMtc;
 	}
 
-	/*** @param bool $allowedMtc */
-	public function setAllowedMtc($allowedMtc)
-	{
-		$this->allowedMtc = $allowedMtc;
-	}
-
 	/*** @return bool */
-	public function isAllowedData()
+	public function isAllowedData(): bool
 	{
 		return $this->allowedData;
 	}
 
-	/*** @param bool $allowedData */
-	public function setAllowedData($allowedData)
-	{
-		$this->allowedData = $allowedData;
-	}
-
 	/*** @return bool */
-	public function isAllowedMosms()
+	public function isAllowedMosms(): bool
 	{
 		return $this->allowedMosms;
 	}
 
-	/*** @param bool $allowedMosms */
-	public function setAllowedMosms($allowedMosms)
-	{
-		$this->allowedMosms = $allowedMosms;
-	}
-
 	/*** @return bool */
-	public function isAllowedMtsms()
+	public function isAllowedMtsms(): bool
 	{
 		return $this->allowedMtsms;
 	}
 
-	/*** @param bool $allowedMtsms */
-	public function setAllowedMtsms($allowedMtsms)
-	{
-		$this->allowedMtsms = $allowedMtsms;
-	}
-
 	/*** @return string */
-	public function getAccount()
+	public function getAccount(): string
 	{
 		return $this->account;
 	}
 
-	/*** @param string $account */
-	public function setAccount($account)
-	{
-		$this->account = $account;
-	}
-
 	/*** @return string */
-	public function getReseller()
+	public function getReseller(): string
 	{
 		return $this->reseller;
 	}
 
-	/*** @param string $reseller */
-	public function setReseller($reseller)
+	/*** @return int|NULL */
+	public function getLastMcc(): ?int
 	{
-		$this->reseller = $reseller;
+		return $this->lastMcc ?? NULL;
+	}
+
+	/*** @return int|NULL */
+	public function getLastMnc(): ?int
+	{
+		return $this->lastMnc ?? NULL;
+	}
+
+	/*** @return string */
+	public function getImsi(): string
+	{
+		return $this->getImsiList()->getImsi();
+	}
+
+	/*** @return string */
+	public function getMsisdn(): string
+	{
+		return $this->getPhoneNumberList()->getPhoneNumber();
+	}
+
+	/*** @return string */
+	public function getPin1(): string
+	{
+		return $this->getSim()->getPin1();
+	}
+
+	/*** @return string */
+	public function getPin2(): string
+	{
+		return $this->getSim()->getPin2();
+	}
+
+	/*** @return string */
+	public function getPuk1(): string
+	{
+		return $this->getSim()->getPuk1();
+	}
+
+	/*** @return string */
+	public function getPuk2(): string
+	{
+		return $this->getSim()->getPuk2();
+	}
+
+	/*** @return string */
+	public function getProviderStatus(): string
+	{
+		return $this->getStatus()->getStatus();
 	}
 }

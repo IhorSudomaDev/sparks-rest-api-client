@@ -6,13 +6,13 @@ use SparksRestApiClient\Responses\Abstracts\ASingleModelResponse;
 use SparksRestApiClient\ValueObjects\Model;
 
 /**
- * Class SubscriberUsageOverPeriodResponse
+ * Class GetSingleSubscriberResponse
  * @package SparksRestApiClient\Responses\Subscriber
  */
-class SubscriberUsageOverPeriodResponse extends ASingleModelResponse
+class GetSingleSubscriberResponse extends ASingleModelResponse
 {
 	/*** @var string */
-	protected string $modelClass = Model::SUBSCRIBER_USAGE_OVER_PERIOD;
+	protected string $modelClass = Model::SUBSCRIBER;
 	/*** @var string */
-	protected string $singleName = 'subscriberUsageOverPeriod';
+	protected string $singleName = 'getSingleSubscriber';
 }

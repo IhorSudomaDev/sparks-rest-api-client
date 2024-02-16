@@ -9,13 +9,19 @@ namespace SparksRestApiClient\ValueObjects;
 class SubscriberStatus
 {
 	/*** @var string */
-	public const ACTIVE = 'ACTIVE';
+	public const ACTIVE = 'Active';
 	/*** @var string */
-	public const DISCONNECTED = 'DISCONNECTED';
+	public const DISCONNECTED = 'Disconnected';
 	/*** @var string */
-	public const INACTIVE = 'INACTIVE';
+	public const INACTIVE = 'Inactive';
 	/*** @var string */
-	public const PENDING = 'PENDING';
+	public const PENDING = 'Pending';
 	/*** @var string */
-	public const SUSPENDED = 'SUSPENDED';
+	public const SUSPENDED = 'Suspended';
+
+	/*** @return string[] */
+	public static function getList(): array
+	{
+		return [self::ACTIVE, self::DISCONNECTED, self::INACTIVE, self::PENDING, self::SUSPENDED];
+	}
 }

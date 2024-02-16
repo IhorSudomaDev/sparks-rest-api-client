@@ -8,17 +8,20 @@ use SparksRestApiClient\Models\ContactInfo;
 use SparksRestApiClient\Models\ImsiList;
 use SparksRestApiClient\Models\MultiImsi;
 use SparksRestApiClient\Models\PhoneNumberList;
+use SparksRestApiClient\Models\QuantityPerCountry;
+use SparksRestApiClient\Models\QuantityPerOperator;
 use SparksRestApiClient\Models\Reseller;
 use SparksRestApiClient\Models\Sim;
 use SparksRestApiClient\Models\Status;
 use SparksRestApiClient\Models\Subscriber;
-use SparksRestApiClient\Models\SubscriberUsage\QuantityPerCountry;
-use SparksRestApiClient\Models\SubscriberUsage\QuantityPerOperator;
-use SparksRestApiClient\Models\SubscriberUsage\Total;
+use SparksRestApiClient\Models\SubsDailyUsage;
+use SparksRestApiClient\Models\SubsPeriodUsage;
+use SparksRestApiClient\Models\Total;
+use SparksRestApiClient\Models\Usage;
 use stdClass;
 
 /**
- * Class ModelFactory
+ * Class Modelfactory
  * @package SparksRestApiClient\ValueObjects
  */
 class ModelFactory
@@ -77,10 +80,20 @@ class ModelFactory
 							$newModel = new Status();
 							break;
 						case 'subscriber':
+						case 'getSingleSubscriber':
 							$newModel = new Subscriber();
+							break;
+						case 'subsDailyUsages':
+							$newModel = new SubsDailyUsage();
+							break;
+						case 'subsPeriodUsages':
+							$newModel = new SubsPeriodUsage();
 							break;
 						case 'total':
 							$newModel = new Total();
+							break;
+						case 'usages':
+							$newModel = new Usage();
 							break;
 						default:
 							$newModel = new stdClass();

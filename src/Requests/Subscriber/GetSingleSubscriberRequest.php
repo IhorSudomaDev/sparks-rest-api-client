@@ -3,7 +3,7 @@
 namespace SparksRestApiClient\Requests\Subscriber;
 
 use SparksRestApiClient\Requests\Abstracts\ARequest;
-use SparksRestApiClient\Responses\Subscriber\GetSingleSubscriberResponseResponse;
+use SparksRestApiClient\Responses\Subscriber\GetSingleSubscriberResponse;
 
 /**
  * Class GetSingleSubscriberRequest
@@ -15,7 +15,7 @@ class GetSingleSubscriberRequest extends ARequest
 	protected string $action = 'getSingleSubscriber';
 
 	/*** @var string */
-	protected string $responseClass = GetSingleSubscriberResponseResponse::class;
+	protected string $responseClass = GetSingleSubscriberResponse::class;
 
 	/*** @var array|NULL[] */
 	protected array $availableInputParameters = [];
