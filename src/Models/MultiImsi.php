@@ -18,22 +18,10 @@ class MultiImsi
 		return $this->id;
 	}
 
-	/*** @param int $id */
-	public function setId(int $id): void
-	{
-		$this->id = $id;
-	}
-
 	/*** @return int */
 	public function getSubscriberId(): int
 	{
 		return $this->subscriberId;
-	}
-
-	/*** @param int $subscriberId */
-	public function setSubscriberId(int $subscriberId): void
-	{
-		$this->subscriberId = $subscriberId;
 	}
 
 	/*** @return string */
@@ -42,21 +30,9 @@ class MultiImsi
 		return $this->imsi;
 	}
 
-	/*** @param string $imsi */
-	public function setImsi(string $imsi): void
-	{
-		$this->imsi = $imsi;
-	}
-
 	/*** @return string */
 	public function getStartDate(): string
 	{
 		return $this->startDate;
-	}
-
-	/*** @param string $startDate */
-	public function setStartDate(string $startDate): void
-	{
-		$this->startDate = $startDate;
 	}
 }

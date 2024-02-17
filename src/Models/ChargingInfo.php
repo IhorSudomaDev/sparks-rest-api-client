@@ -18,22 +18,10 @@ class ChargingInfo
 		return $this->mobilePlan;
 	}
 
-	/*** @param MobilePlan $mobilePlan */
-	public function setMobilePlan(MobilePlan $mobilePlan): void
-	{
-		$this->mobilePlan = $mobilePlan;
-	}
-
 	/*** @return VoipPlan */
 	public function getVoipPlan(): VoipPlan
 	{
 		return $this->voipPlan;
-	}
-
-	/*** @param VoipPlan $voipPlan */
-	public function setVoipPlan(VoipPlan $voipPlan): void
-	{
-		$this->voipPlan = $voipPlan;
 	}
 
 	/*** @return bool */
@@ -42,21 +30,9 @@ class ChargingInfo
 		return $this->CallPackageUseSingleCounter;
 	}
 
-	/*** @param bool $CallPackageUseSingleCounter */
-	public function setCallPackageUseSingleCounter(bool $CallPackageUseSingleCounter): void
-	{
-		$this->CallPackageUseSingleCounter = $CallPackageUseSingleCounter;
-	}
-
 	/*** @return bool */
 	public function isVoipFree(): bool
 	{
 		return $this->voipFree;
-	}
-
-	/*** @param bool $voipFree */
-	public function setVoipFree(bool $voipFree): void
-	{
-		$this->voipFree = $voipFree;
 	}
 }

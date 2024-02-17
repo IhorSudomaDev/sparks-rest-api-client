@@ -3,16 +3,15 @@
 namespace SparksRestApiClient\Models;
 
 use SparksRestApiClient\ValueObjects\UsageType;
-use stdClass;
 
 /**
  * Class Total
- * @property float                   cost
- * @property float                   parentResellerCost
- * @property float                   resellerCost
- * @property float                   subscriberCost
- * @property stdClass|NULL           quantityPerType
- * @property QuantityPerCountry|NULL quantityPerCountry
+ * @property float                cost
+ * @property float                parentResellerCost
+ * @property float                resellerCost
+ * @property float                subscriberCost
+ * @property array                quantityPerType
+ * @property QuantityPerCountry[] quantityPerCountry
  * @package SparksRestApiClient\Models
  */
 class Total
@@ -41,16 +40,24 @@ class Total
 		return $this->subscriberCost;
 	}
 
-	/*** @return int|NULL */
-	public function getQuantityPerType(): ?int
+	/*** @return array */
+	public function getQuantityPerType(): array
 	{
-		$type = UsageType::DATA;
-		return $this->quantityPerType->$type ?? NULL;
+		if (isset($this->quantityPerType)) {
+			return (array) $this->quantityPerType;
+		}
+		return [];
 	}
 
-	/*** @return QuantityPerCountry|NULL */
-	public function getQuantityPerCountry(): ?QuantityPerCountry
+	/*** @return QuantityPerCountry[] */
+	public function getQuantityPerCountry(): array
 	{
-		return $this->quantityPerCountry[0] ?? NULL;
+		return $this->quantityPerCountry ?? [];
+	}
+
+	/*** @return int */
+	public function getQuantityPerTypeData(): int
+	{
+		return $this->getQuantityPerType()[UsageType::DATA] ?? 0;
 	}
 }

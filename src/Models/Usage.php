@@ -5,8 +5,8 @@ namespace SparksRestApiClient\Models;
 /**
  * Class Usage
  * @property int                    subscriberId
- * @property Total|NULL             total
- * @property SubsPeriodUsage[]|NULL subsPeriodUsages
+ * @property Total|array         total
+ * @property SubsPeriodUsage[] subsPeriodUsages
  * @package SparksRestApiClient\Models
  */
 class Usage
@@ -17,15 +17,15 @@ class Usage
 		return $this->subscriberId;
 	}
 
-	/*** @return Total|NULL */
-	public function getTotal(): ?Total
+	/*** @return array|Total */
+	public function getTotal()
 	{
-		return $this->total ?? NULL;
+		return $this->total ?? [];
 	}
 
-	/*** @return SubsPeriodUsage[]|NULL */
-	public function getSubsPeriodUsages(): ?array
+	/*** @return SubsPeriodUsage[] */
+	public function getSubsPeriodUsages(): array
 	{
-		return $this->subsPeriodUsages ?? NULL;
+		return $this->subsPeriodUsages ?? [];
 	}
 }

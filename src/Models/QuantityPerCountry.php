@@ -40,6 +40,6 @@ class QuantityPerCountry
 	/*** @return QuantityPerOperator[] */
 	public function getQuantityPerOperator(): array
 	{
-		return $this->quantityPerOperator;
+		return $this->quantityPerOperator ?? [];
 	}
 }

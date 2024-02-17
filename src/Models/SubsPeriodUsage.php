@@ -5,7 +5,7 @@ namespace SparksRestApiClient\Models;
 /**
  * Class SubsPeriodUsage
  * @property string           day
- * @property Total|NULL       total
+ * @property Total|array      total
  * @property SubsDailyUsage[] subsDailyUsages
  * @package SparksRestApiClient\Models
  */
@@ -17,18 +17,19 @@ class SubsPeriodUsage
 		return $this->day;
 	}
 
-	/*** @return Total|NULL */
-	public function getTotal(): ?Total
+	/*** @return array|Total */
+	public function getTotal()
 	{
-		return $this->total ?? NULL;
+		return $this->total ?? [];
 	}
 
 	/*** @return SubsDailyUsage[] */
 	public function getSubsDailyUsages(): array
 	{
-		return $this->subsDailyUsages;
+		return $this->subsDailyUsages ?? [];
 	}
 
+	/* ADDITIONAL CHILD METHODS */
 	/*** @return string */
 	public function getImei(): string
 	{

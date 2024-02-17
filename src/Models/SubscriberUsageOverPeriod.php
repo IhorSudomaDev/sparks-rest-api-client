@@ -4,21 +4,21 @@ namespace SparksRestApiClient\Models;
 
 /**
  * Class SubscriberUsageOverPeriod
- * @property Total|NULL   total
- * @property Usage[]|NULL usages
+ * @property Total|array total
+ * @property Usage[]     usages
  * @package SparksRestApiClient\Models\SubscriberUsage
  */
 class SubscriberUsageOverPeriod
 {
-	/*** @return Total|null */
-	public function getTotal(): ?Total
+	/*** @return array|Total */
+	public function getTotal()
 	{
-		return $this->total ?? NULL;
+		return $this->total ?? [];
 	}
 
-	/*** @return Usage[]|null */
+	/*** @return Usage[] */
 	public function getUsages(): ?array
 	{
-		return $this->usages ?? NULL;
+		return $this->usages ?? [];
 	}
 }

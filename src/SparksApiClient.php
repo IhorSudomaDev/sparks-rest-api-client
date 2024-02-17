@@ -53,12 +53,6 @@ class SparksApiClient
 		return new ListSubscriberRequest($this->getApiToken());
 	}
 
-	/*** @return GetSingleSubscriberRequest */
-	public function getSingleSubscriber(): GetSingleSubscriberRequest
-	{
-		return new GetSingleSubscriberRequest($this->getApiToken());
-	}
-
 	/**
 	 * @param int $resellerId
 	 * @return GetResellerInfoRequest
@@ -66,6 +60,12 @@ class SparksApiClient
 	public function getResellerInfo(int $resellerId): GetResellerInfoRequest
 	{
 		return new GetResellerInfoRequest($this->apiToken, $resellerId);
+	}
+
+	/*** @return GetSingleSubscriberRequest */
+	public function getSingleSubscriber(): GetSingleSubscriberRequest
+	{
+		return new GetSingleSubscriberRequest($this->getApiToken());
 	}
 
 	/**

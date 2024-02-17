@@ -4,57 +4,57 @@ namespace SparksRestApiClient\Models;
 
 /**
  * Class Subscriber
- * @property ImsiList        imsiList
- * @property PhoneNumberList phoneNumberList
- * @property MultiImsi       multiImsi
- * @property array           status
- * @property Sim             sim
- * @property int             subscriberId
- * @property string          batchId
- * @property string|NULL     subscriberName
- * @property int             accountId
- * @property int             resellerId
- * @property bool            prepaid
- * @property float           balance
- * @property string          activationDate
- * @property string|NULL     lastUsageDate
- * @property string|NULL     email
- * @property bool            useAccountForCharging
- * @property bool            allowedMoc
- * @property bool            allowedMtc
- * @property bool            allowedData
- * @property bool            allowedMosms
- * @property bool            allowedMtsms
- * @property string          account
- * @property string          reseller
- * @property int|NULL        lastMcc
- * @property int|NULL        lastMnc
+ * @property ImsiList[]        imsiList
+ * @property PhoneNumberList[] phoneNumberList
+ * @property MultiImsi[]       multiImsi
+ * @property Status[]          status
+ * @property Sim               sim
+ * @property int               subscriberId
+ * @property string            batchId
+ * @property string|NULL       subscriberName
+ * @property int               accountId
+ * @property int               resellerId
+ * @property bool              prepaid
+ * @property float             balance
+ * @property string            activationDate
+ * @property string|NULL       lastUsageDate
+ * @property string|NULL       email
+ * @property bool              useAccountForCharging
+ * @property bool              allowedMoc
+ * @property bool              allowedMtc
+ * @property bool              allowedData
+ * @property bool              allowedMosms
+ * @property bool              allowedMtsms
+ * @property string            account
+ * @property string            reseller
+ * @property int|NULL          lastMcc
+ * @property int|NULL          lastMnc
  * @package SparksRestApiClient\Models
  */
 class Subscriber
 {
-	/*** @return ImsiList */
-	public function getImsiList(): ImsiList
+	/*** @return ImsiList[] */
+	public function getImsiList(): array
 	{
-		return $this->imsiList[0];
+		return $this->imsiList;
 	}
 
-	/*** @return PhoneNumberList */
-	public function getPhoneNumberList(): PhoneNumberList
+	/*** @return PhoneNumberList[] */
+	public function getPhoneNumberList(): array
 	{
-		return $this->phoneNumberList[0];
+		return $this->phoneNumberList;
 	}
 
-	/*** @return MultiImsi */
-	public function getMultiImsi(): MultiImsi
+	/*** @return MultiImsi[] */
+	public function getMultiImsi(): array
 	{
-		return $this->multiImsi[0];
+		return $this->multiImsi;
 	}
 
-	/*** @return Status */
-	public function getStatus(): Status
+	/*** @return Status[] */
+	public function getStatus(): array
 	{
-		return array_pop($this->status);
+		return $this->status;
 	}
 
 	/*** @return Sim */
@@ -183,16 +183,47 @@ class Subscriber
 		return $this->lastMnc ?? NULL;
 	}
 
+	/* ADDITIONAL CHILD METHODS */
+	/*** @return ImsiList */
+	public function getCurrentImsiListData(): ImsiList
+	{
+		return current($this->imsiList);
+	}
+
+	/*** @return PhoneNumberList */
+	public function getCurrentPhoneNumberData(): PhoneNumberList
+	{
+		return current($this->phoneNumberList);
+	}
+
+	/*** @return MultiImsi */
+	public function getCurrentMultiImsiData(): MultiImsi
+	{
+		return current($this->multiImsi);
+	}
+
+	/*** @return Status */
+	public function getCurrentStatusData(): Status
+	{
+		return array_pop($this->status);
+	}
+
+	/*** @return string */
+	public function getIccid(): string
+	{
+		return $this->getCurrentImsiListData()->getIccid();
+	}
+
 	/*** @return string */
 	public function getImsi(): string
 	{
-		return $this->getImsiList()->getImsi();
+		return $this->getCurrentImsiListData()->getImsi();
 	}
 
 	/*** @return string */
 	public function getMsisdn(): string
 	{
-		return $this->getPhoneNumberList()->getPhoneNumber();
+		return $this->getCurrentPhoneNumberData()->getPhoneNumber();
 	}
 
 	/*** @return string */
@@ -222,6 +253,6 @@ class Subscriber
 	/*** @return string */
 	public function getProviderStatus(): string
 	{
-		return $this->getStatus()->getStatus();
+		return $this->getCurrentStatusData()->getStatus();
 	}
 }

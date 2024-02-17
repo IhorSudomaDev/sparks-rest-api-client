@@ -71,6 +71,7 @@ class ModelFactory
 							$newModel = new QuantityPerOperator();
 							break;
 						case 'reseller':
+						case 'getResellerInfo':
 							$newModel = new Reseller();
 							break;
 						case 'sim':
