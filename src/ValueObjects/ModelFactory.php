@@ -82,6 +82,7 @@ class ModelFactory
 							break;
 						case 'subscriber':
 						case 'getSingleSubscriber':
+						case 'subscriberList':
 							$newModel = new Subscriber();
 							break;
 						case 'subsDailyUsages':

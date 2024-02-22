@@ -6,10 +6,10 @@ use SparksRestApiClient\Responses\Abstracts\ASingleResponse;
 use SparksRestApiClient\ValueObjects\Model;
 
 /**
- * Class ModifySubscriberStatusResponse
+ * Class ModifySubscriberBalanceResponse
  * @package SparksRestApiClient\Responses\Subscriber
  */
-class ModifySubscriberStatusResponse extends ASingleResponse
+class ModifySubscriberBalanceResponse extends ASingleResponse
 {
 	/*** @var string */
 	protected string $modelClass = Model::SUBSCRIBER;

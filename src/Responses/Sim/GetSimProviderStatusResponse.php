@@ -3,6 +3,7 @@
 namespace SparksRestApiClient\Responses\Sim;
 
 use SparksRestApiClient\Responses\Abstracts\ASingleResponse;
+use SparksRestApiClient\ValueObjects\Model;
 
 /**
  * Class GetSimProviderStatusResponse
@@ -10,4 +11,6 @@ use SparksRestApiClient\Responses\Abstracts\ASingleResponse;
  */
 class GetSimProviderStatusResponse extends ASingleResponse
 {
+	/*** @var string */
+	protected string $modelClass = Model::SIM;
 }

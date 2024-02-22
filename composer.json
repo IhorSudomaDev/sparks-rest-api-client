@@ -9,7 +9,7 @@
 			"email": "sigord.hunter@gmail.com"
 		}
 	],
-	"version":           "0.3.0",
+	"version":           "0.3.4",
 	"require":           {
 		"php":               ">=7.4",
 		"ext-json":          "*",

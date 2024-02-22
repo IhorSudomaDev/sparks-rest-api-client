@@ -2,8 +2,9 @@
 
 namespace SparksRestApiClient\Responses\Reseller;
 
+use SparksRestApiClient\Models\Account;
 use SparksRestApiClient\Responses\Abstracts\AListResponse;
-use SparksRestApiClient\ValueObjects\Model;
+use SparksRestApiClient\ValueObjects\ModelFactory;
 
 /**
  * Class ListResellerAccountResponse
@@ -11,8 +12,12 @@ use SparksRestApiClient\ValueObjects\Model;
  */
 class ListResellerAccountResponse extends AListResponse
 {
-	/*** @var string */
-	protected string $modelClass = Model::RESELLER;
-	/*** @var string */
-	protected string $listName = '';
+	public function getList(): array
+	{
+		$list = [];
+		foreach ($this->result->listResellerAccount->reseller[0]->account as $data) {
+			$list[] = ModelFactory::create(new Account(), $data);
+		}
+		return $list;
+	}
 }

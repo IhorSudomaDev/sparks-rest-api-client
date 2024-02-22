@@ -2,8 +2,9 @@
 
 namespace SparksRestApiClient\Responses\Subscriber;
 
+use SparksRestApiClient\Models\Subscriber;
 use SparksRestApiClient\Responses\Abstracts\AListResponse;
-use SparksRestApiClient\ValueObjects\Model;
+use SparksRestApiClient\ValueObjects\ModelFactory;
 
 /**
  * Class ListSubscriberResponse
@@ -11,8 +12,13 @@ use SparksRestApiClient\ValueObjects\Model;
  */
 class ListSubscriberResponse extends AListResponse
 {
-	/*** @var string */
-	protected string $modelClass = Model::SUBSCRIBER;
-	/*** @var string */
-	protected string $listName = 'subscriberList';
+	/*** @return array */
+	public function getList(): array
+	{
+		$list = [];
+		foreach ($this->result->listSubscriber->subscriberList as $data) {
+			$list[] = ModelFactory::create(new Subscriber(), $data);
+		}
+		return $list;
+	}
 }

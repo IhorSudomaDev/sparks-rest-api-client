@@ -63,7 +63,7 @@ abstract class ARequest implements IRequest
 				if (empty($resultContent)) {
 					$resultContent = '[]';
 				}
-				return (new $this->responseClass())->get(json_decode($resultContent, FALSE, 512, JSON_THROW_ON_ERROR));
+				return (new $this->responseClass($resultContent));
 			case 204:
 			case 201:
 				return TRUE;

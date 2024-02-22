@@ -2,7 +2,11 @@
 
 namespace SparksRestApiClient\Responses\Abstracts;
 
+use RuntimeException;
+use SparksRestApiClient\Models\ResponseStatus;
 use SparksRestApiClient\ValueObjects\ModelFactory;
+use SparksRestApiClient\ValueObjects\ResponseStatusErrorCode;
+use Throwable;
 
 /**
  * Class AListResponse
@@ -10,32 +14,17 @@ use SparksRestApiClient\ValueObjects\ModelFactory;
  */
 abstract class AListResponse extends AResponse
 {
-	/*** @var string */
-	protected string $modelClass;
-	/*** @var string */
-	protected string $listName;
+	/*** @var mixed */
+	protected $result;
 
-	/**
-	 * @param $result
-	 * @return array
-	 */
-	public function get($result): array
+	/*** @throws Throwable */
+	public function __construct($result)
 	{
-		$list       = [];
-		$modelClass = $this->modelClass;
-		$modelName  = '\SparksRestApiClient\Models\\' . $modelClass;
-		if ( ! empty($result)) {
-			foreach ($result as $data) {
-				$list[] = ModelFactory::create(new $modelName(), $data);
-			}
+		parent::__construct($result);
+		/*** @var ResponseStatus $responseStatus */
+		$responseStatus = ModelFactory::create(new ResponseStatus(), $this->result->status);
+		if ($responseStatus->getCode() !== ResponseStatusErrorCode::OK) {
+			throw new RuntimeException($responseStatus->getMsg());
 		}
-		$finishList = (array) $list[1];
-		$resultList = [];
-		if (empty($this->listName)) {
-			$resultList = $finishList[strtolower($modelClass)];
-		} else if (array_key_exists($this->listName, $finishList)) {
-			$resultList = $finishList[$this->listName];
-		}
-		return $resultList;
 	}
 }

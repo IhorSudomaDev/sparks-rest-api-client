@@ -14,6 +14,6 @@ class NotFoundSparksModelException extends Exception
 	/*** @param string $model */
 	public function __construct(string $model)
 	{
-		parent::__construct('Not Found Sparks (' . $model . ')');
+		parent::__construct('Not Found Sparks (' . $model . ' (s) )');
 	}
 }
