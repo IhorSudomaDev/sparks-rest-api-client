@@ -27,4 +27,10 @@ abstract class AListResponse extends AResponse
 			throw new RuntimeException($responseStatus->getMsg());
 		}
 	}
+
+	/*** @return mixed */
+	public function get()
+	{
+		return $this->result;
+	}
 }
