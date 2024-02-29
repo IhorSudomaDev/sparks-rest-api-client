@@ -11,6 +11,8 @@ class Model
 	/*** @var string */
 	public const ACCOUNT = 'Account';
 	/*** @var string */
+	public const AFFECT_PACKAGE_TO_SUBSCRIBER = 'affectPackageToSubscriber';
+	/*** @var string */
 	public const CHARGING_INFO = 'ChargingInfo';
 	/*** @var string */
 	public const CONTACT_INFO = 'ContactInfo';
@@ -32,6 +34,8 @@ class Model
 	public const SUBSCRIBER = 'Subscriber';
 	/*** @var string */
 	public const SUBSCRIBER_USAGE_OVER_PERIOD = 'SubscriberUsageOverPeriod';
+	/*** @var string */
+	public const TEMPLATE = 'Template';
 	/*** @var string */
 	public const TRAFFIC_INFO = 'TrafficInfo';
 	/*** @var string */

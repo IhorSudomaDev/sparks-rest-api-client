@@ -202,12 +202,6 @@ class Subscriber
 		return current($this->multiImsi);
 	}
 
-	/*** @return Status */
-	public function getCurrentStatusData(): Status
-	{
-		return array_pop($this->status);
-	}
-
 	/*** @return string */
 	public function getIccid(): string
 	{
@@ -253,6 +247,10 @@ class Subscriber
 	/*** @return string */
 	public function getProviderStatus(): string
 	{
-		return $this->getCurrentStatusData()->getStatus();
+		foreach ($this->getStatus() as $status) {
+			$providerStatusList[$status->getId()] = $status->getStatus();
+		}
+		ksort($providerStatusList);
+		return array_pop($providerStatusList);
 	}
 }

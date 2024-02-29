@@ -4,6 +4,7 @@ namespace SparksRestApiClient\ValueObjects;
 
 use Exception;
 use SparksRestApiClient\Models\Account;
+use SparksRestApiClient\Models\AffectPackageToSubscriber;
 use SparksRestApiClient\Models\ContactInfo;
 use SparksRestApiClient\Models\ImsiList;
 use SparksRestApiClient\Models\MultiImsi;
@@ -51,6 +52,9 @@ class ModelFactory
 					switch ($key) {
 						case 'account':
 							$newModel = new Account();
+							break;
+						case 'affectPackageToSubscriber':
+							$newModel = new AffectPackageToSubscriber();
 							break;
 						case 'contactInfo':
 							$newModel = new ContactInfo();

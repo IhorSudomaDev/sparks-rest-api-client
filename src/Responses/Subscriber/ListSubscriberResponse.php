@@ -16,8 +16,10 @@ class ListSubscriberResponse extends AListResponse
 	public function getList(): array
 	{
 		$list = [];
-		foreach ($this->result->listSubscriber->subscriberList as $data) {
-			$list[] = ModelFactory::create(new Subscriber(), $data);
+		if (property_exists($this->result->listSubscriber, 'subscriberList')) {
+			foreach ($this->result->listSubscriber->subscriberList as $data) {
+				$list[] = ModelFactory::create(new Subscriber(), $data);
+			}
 		}
 		return $list;
 	}

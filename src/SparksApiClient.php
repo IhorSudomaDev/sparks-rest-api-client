@@ -4,6 +4,8 @@ namespace SparksRestApiClient;
 
 use Exception;
 use SparksRestApiClient\Requests\Account\ModifyAccountBalanceRequest;
+use SparksRestApiClient\Requests\Package\AffectPackageToSubscriberRequest;
+use SparksRestApiClient\Requests\Package\ListPrepaidPackageTemplateRequest;
 use SparksRestApiClient\Requests\Reseller\GetResellerInfoRequest;
 use SparksRestApiClient\Requests\Reseller\ListResellerAccountRequest;
 use SparksRestApiClient\Requests\Sim\GetSimProviderStatusRequest;
@@ -127,5 +129,21 @@ class SparksApiClient
 	public function sendMtSms(string $imsi, string $text, string $senderId): SendMtSmsRequest
 	{
 		return new SendMtSmsRequest($this->getApiToken(), $imsi, $text, $senderId);
+	}
+
+	/*** @return ListPrepaidPackageTemplateRequest */
+	public function listPrepaidPackageTemplate(): ListPrepaidPackageTemplateRequest
+	{
+		return new ListPrepaidPackageTemplateRequest($this->getApiToken());
+	}
+
+	/**
+	 * @param int    $packageTemplateId
+	 * @param string $iccid
+	 * @return AffectPackageToSubscriberRequest
+	 */
+	public function affectPackageToSubscriber(int $packageTemplateId, string $iccid): AffectPackageToSubscriberRequest
+	{
+		return new AffectPackageToSubscriberRequest($this->getApiToken(), $packageTemplateId, $iccid);
 	}
 }
